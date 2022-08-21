@@ -74,11 +74,11 @@ simulation_logit<-function(n,beta){
 }
 
 
-rep<-200 ## 1000 data 
+rep<-1000 ## 1000 data 
 n<-600
 
 
-## will try log(2),log(4),-log(2),-log(4)
+
 beta<- log(8)
 
 data.sim.logit<-list()
