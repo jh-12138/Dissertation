@@ -1,14 +1,9 @@
 library(actuar)
 library(faux)
 
-## if we were to include 0 as beta 1, then we will 5 covarites. 
-## and could go with k=2 as well. 
-
-## 6 covariates, events per variable is 3,5 and 10, which translates to 
-## n = 180, 300, 600.
 
 
-simulation_log<-function(n,beta){ 
+simulation_log<-function(n,beta){  ##function that takes n and beta as input and output the data. 
     
     dat1 <- rnorm_multi(n, 
                         mu = c(0, 0, 0),
@@ -90,7 +85,6 @@ rep<-1000 ## 1000 data
 n<-300
 
 
-## will try log(2),log(4),-log(2),-log(4)
 
 beta<- log(8)
 
