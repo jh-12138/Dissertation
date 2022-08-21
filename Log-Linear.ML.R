@@ -88,6 +88,8 @@ n<-300
 
 beta<- log(8)
 
+
+## create a list to store the data
 data.sim.log<-list()
 set.seed(10)
 
@@ -95,6 +97,7 @@ for(i in 1:rep){
   data.sim.log[[i]]<-simulation_log(n,beta)
 }
 
+## create lists to store regression outputs and standard errors 
 
 fit<-list()
 se<-list()
