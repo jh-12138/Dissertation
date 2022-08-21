@@ -1,7 +1,10 @@
 ## 6 covariates 
 
+## RMSE
+
 par(mfrow=c(2,3))
 op <- par(cex = 1)  
+
 
 
 x<-c(-log(8),-log(6),-log(4),-log(2),0,log(2),log(4),log(6),log(8))
