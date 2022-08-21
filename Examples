@@ -21,9 +21,6 @@ summary(logit)
 
 ## move on to the log-linear 
 
-
-
-
 ##lizards
 
 ## the data manipulations are whenever height is >= 5ft, the count for opalinus 
@@ -33,28 +30,29 @@ data.2<-data.2[,-1]
 
 
 
-log<-glm(opalinus~.,data=data.2, family = poisson(link="log"))
+log<-glm(opalinus~.,data=data.2, family = poisson(link="log")) ## log-linear model
 summary(log)
 
 xtabs(~height+diameter+opalinus, data = data.2) ## contingency table 2
 
 
+## data modifications
 data.2$opalinus<-ifelse(data.2$height==">=5ft",0,data.2$opalinus[data.2$height=="<5ft"])
 
 
-log.2<-glm(opalinus~.,data=data.2, family = poisson(link="log"))
+log.2<-glm(opalinus~.,data=data.2, family = poisson(link="log")) 
 summary(log.2)
 
 
 ## firth
 
-firth_log<-glm(opalinus~.,data=data.2, family = poisson(link="log"),method = "brglmFit")
+firth_log<-glm(opalinus~.,data=data.2, family = poisson(link="log"),method = "brglmFit") ## log-linear via Firth
 
 summary(firth_log)
 
 
 firth_logit<-logistf(HG~.,data =
-                  data,firth = T)
+                  data,firth = T) ## logistic Firth
 
 summary(firth_logit)
 
@@ -65,7 +63,7 @@ x_vars <- model.matrix(HG~., data)[,-1]
 y_var <- data$HG
 
 set.seed(10)
-train = sample(1:nrow(x_vars), nrow(x_vars)/2)
+train = sample(1:nrow(x_vars), nrow(x_vars)/2) ## train the data
 x_test = (-train)
 y_test = y_var[x_test]
 
@@ -80,7 +78,6 @@ lasso_best <- glmnet(x_vars[train,], y_var[train], alpha = 1, lambda = best_lam,
 coef(lasso_best)
 
 ## ridge logit
-
 
 x_vars <- model.matrix(HG~., data)[,-1]
 y_var <- data$HG
