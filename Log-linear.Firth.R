@@ -88,13 +88,15 @@ n<-600
 
 beta<-log(8)
 
-
+## create a list to store the data
 data.sim.log<-list()
 set.seed(10)
 
 for(i in 1:rep){
   data.sim.log[[i]]<-simulation_log(n,beta)
 }
+
+## lists for regression outputs and se. 
 
 
 fit<-list()
