@@ -74,7 +74,7 @@ simulation_logit<-function(n,beta){
 }
 
 
-rep<-200 ## 1000 data 
+rep<-1000 ## 1000 data 
 n<-600
 
 
