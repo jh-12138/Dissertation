@@ -167,7 +167,7 @@ coverage_fn<-function(se,rep,lower,upper, beta){
 coverage<-coverage_fn(se,rep,lower,upper,beta)
 
 
-## RMSE
+## RMSE of beta 
 
 
 estimate<-list()
