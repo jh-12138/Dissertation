@@ -2,7 +2,7 @@
 
 ## RMSE of beta 
 
-par(mfrow=c(2,3))
+par(mfrow=c(2,3)) ## adjust display format 
 op <- par(cex = 1)  
 
 
