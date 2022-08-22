@@ -156,7 +156,8 @@ coverage_fn<-function(se,rep,lower,upper, beta){
 coverage<-coverage_fn(se,rep,lower,upper,beta)
 
 
-##RMSE
+##RMSE of beta
+
 estimate<-list()
 
 RMSE_fn<-function(estimate,fit){ ## the full data
@@ -200,17 +201,5 @@ RMSE.pred_fn<-function(pred,diff,RMSE.pred,fit){ ## the full data
 }
 
 RMSE.pred<-RMSE.pred_fn(pred,diff,RMSE.pred,fit)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
