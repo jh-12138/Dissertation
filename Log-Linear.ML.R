@@ -111,6 +111,8 @@ se<-list()
 
 for (i in 1:rep){
   
+    ## regressions 
+    
   fit[[i]]<-glm(y_log~.,data =
                   as.data.frame(data.sim.log[[i]]),
                 family = poisson(link="log"))
