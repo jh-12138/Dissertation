@@ -5,6 +5,8 @@ library(faux)
 
 simulation_log<-function(n,beta){  ##function that takes n and beta as input and output the data. 
     
+    ## simulate the random numbers
+    
     dat1 <- rnorm_multi(n, 
                         mu = c(0, 0, 0),
                         sd = c(1, 1, 1),
@@ -28,6 +30,9 @@ simulation_log<-function(n,beta){  ##function that takes n and beta as input and
     
     
     ## binary
+    
+    ## manually control the data to ensure viable covariates are created
+    
     dat[,"z1"]<-ifelse(dat[,"z1"]>1.6,1,0) ## around 3% of 1s.  mean 0.07777778
     dat[,"z3"]<-ifelse(dat[,"z3"]>1,1,0) ## 13 % of 1s. mean 0.1277778
     dat[,"z5"]<-ifelse(dat[,"z5"]>1,1,0) ## 15% of 1 s. mean  0.15
@@ -92,6 +97,8 @@ beta<- log(8)
 ## create a list to store the data
 data.sim.log<-list()
 set.seed(10)
+
+## simulate the data
 
 for(i in 1:rep){
   data.sim.log[[i]]<-simulation_log(n,beta)
@@ -178,6 +185,7 @@ RMSE<-RMSE_fn(estimate,fit)
 
 ## predictions
 
+## initialise
 
 pred<-list()
 diff<-list()
