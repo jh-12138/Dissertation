@@ -1,4 +1,4 @@
-## RMSE
+## RMSE of beta 
 
 par(mfrow=c(2,3)) ## adjust display formats 
 
