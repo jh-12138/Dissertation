@@ -1,7 +1,9 @@
 library(faux)
 library(glmnet)
 
-simulation_logit<-function(n,beta){ 
+simulation_logit<-function(n,beta){ ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -86,7 +88,7 @@ beta<- log(8)
 data.sim.logit<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data 
   data.sim.logit[[i]]<-simulation_logit(n,beta)
 }
 
@@ -96,6 +98,8 @@ for(i in 1:rep){
 name<-c("y_logit","x1","x3","x4")
 
 newdata<-list()
+
+## re-caliberate the data 
 
 for(i in 1:rep){
   newdata[[i]]<-data.sim.logit[[i]][,name]
@@ -109,6 +113,8 @@ ridge.coef.logit<-list()
 
 for (i in 1:rep){
   
+  ## regressions
+  
   ridge[[i]] <- cv.glmnet(newdata[[i]][,2:4], newdata[[i]][,"y_logit"],
                           alpha = 0, family="binomial",nfolds = 10)
   
@@ -116,9 +122,11 @@ for (i in 1:rep){
   
 }
 
+## RMSE
 
 RMSE<-sqrt((sum((unlist(ridge.coef.logit)-beta)^2)/rep))
 
+## predictions 
 
 pred<-list()
 RMSE.pred<-list()
