@@ -3,7 +3,9 @@ library(faux)
 
 
 
-simulation_logit<-function(n,beta){ 
+simulation_logit<-function(n,beta){ ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -88,7 +90,7 @@ beta<- log(8)
 data.sim.logit<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data 
   data.sim.logit[[i]]<-simulation_logit(n,beta)
 }
 
@@ -100,6 +102,8 @@ ridge.coef.logit<-list()
 
 for (i in 1:rep){
   
+  ## regressions 
+  
   ridge[[i]] <- cv.glmnet(data.sim.logit[[i]][,2:7], data.sim.logit[[i]][,"y_logit"],
                           alpha = 0, family="binomial",nfolds = 10)
   
@@ -108,8 +112,11 @@ for (i in 1:rep){
 }
 
 
+## RMSE of beta 
 RMSE<-sqrt((sum((unlist(ridge.coef.logit)-beta)^2)/rep))
 
+
+## predictions 
 
 pred<-list()
 RMSE.pred<-list()
