@@ -4,7 +4,7 @@ library(actuar)
 library(MASS)
 
 
-simulation_log<-function(n,beta){ 
+simulation_log<-function(n,beta){ ## data simulation 
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -107,6 +107,7 @@ for(i in 1:rep){
 }
 
 
+## initialise lists 
 
 fit<-list()
 se<-list()
@@ -124,6 +125,9 @@ for (i in 1:rep){
 ## count the number of separation 
 separation<-length(which(as.numeric(se)>200))
 
+
+
+## coverage 
 
 confidence<-list()
 lower<-list()
@@ -157,6 +161,7 @@ coverage_fn<-function(se,rep,confidence,lower,upper, beta){
 }
 
 
+## RMSE
 
 coverage.firth<-coverage_fn(se,rep,confidence,lower,upper,beta)
 
