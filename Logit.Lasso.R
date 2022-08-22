@@ -2,7 +2,9 @@
 library(faux)
 library(glmnet)
 
-simulation_logit<-function(n,beta){ 
+simulation_logit<-function(n,beta){ ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -38,8 +40,6 @@ simulation_logit<-function(n,beta){
   z2copy1<-ifelse(z2copy1>0.8,1,0)
   z2copy2<-ifelse(z2copy2>1.2,1,0)
   z2<-z2copy1+z2copy2 ## 18% of non-zeros. mean 0.2777778
-  
-  
   
   ## z4
   
@@ -85,17 +85,20 @@ beta<- log(8)
 data.sim.logit<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data 
   data.sim.logit[[i]]<-simulation_logit(n,beta)
 }
 
 
+## initialisations 
 
 lasso<-list()
 lasso.coef.logit<-list()
 
 
 for (i in 1:rep){
+  
+  ## regressions 
   
   lasso[[i]] <- cv.glmnet(data.sim.logit[[i]][,2:7], data.sim.logit[[i]][,"y_logit"],
                           alpha = 1, family="binomial",nfolds = 10)
@@ -104,9 +107,12 @@ for (i in 1:rep){
   
 }
 
+## RMSE
 
 RMSE<-sqrt((sum((unlist(lasso.coef.logit)-beta)^2)/rep))
 
+
+## predictions 
 
 pred<-list()
 RMSE.pred<-list()
