@@ -1,6 +1,6 @@
 ## 6 covariates 
 
-## RMSE
+## RMSE of beta 
 
 par(mfrow=c(2,3))
 op <- par(cex = 1)  
