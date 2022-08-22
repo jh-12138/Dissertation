@@ -2,7 +2,9 @@
 library(logistf)
 library(faux)
 
-simulation_logit<-function(n,beta){ 
+simulation_logit<-function(n,beta){ ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -84,7 +86,7 @@ beta<- log(8)
 data.sim.logit<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data 
   data.sim.logit[[i]]<-simulation_logit(n,beta)
 }
 
@@ -100,12 +102,14 @@ for(i in 1:rep){
 }
 
 
-
+## initialisations 
 
 fit<-list()
 se<-list()
 
 for (i in 1:rep){
+  
+  ## regressions
   
   fit[[i]]<-logistf(y_logit~.,data =
                       as.data.frame(newdata[[i]]),pl = T,firth = T)
@@ -116,6 +120,7 @@ for (i in 1:rep){
 ## count the number of separation 
 separation<-length(which(as.numeric(se)>200))
 
+## coverage 
 
 lower<-list()
 upper<-list()
@@ -171,7 +176,6 @@ RMSE<-RMSE_fn(estimate,fit)
 
 
 ## predictions
-
 
 pred<-list()
 diff<-list()
