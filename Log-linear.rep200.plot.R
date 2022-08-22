@@ -9,7 +9,7 @@ op <- par(cex = 1)
 
 x<-c(-log(8),-log(6),-log(4),-log(2),0,log(2),log(4),log(6),log(8))
 
-
+## n=180
 lasso.180<-c(1.951521,1.688144,1.308786,0.6700999,0.1291079,0.5775901,0.7772036,0.7792473,0.6247081)
 lasso.180<-lasso.180*sqrt(180)
 
@@ -41,7 +41,7 @@ legend("topright", legend=c("Lasso", "Ridge","ML","Firth"),
        col=c("black", "green","red","blue"), lty=1, cex=0.6)
 
 
-##
+## n=300
 
 lasso.300<-c(1.840597,1.59505,1.256677,0.6542296,0.1258523,0.5067989,0.4927103,0.4226177,0.3196468)
 lasso.300<-lasso.300*sqrt(300)
@@ -75,7 +75,7 @@ legend("topright", legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=300
 lasso.600<-c(1.639666,1.442931,1.147951,0.6314358,0.08026556,0.4108446,0.2787678,0.2287978,0.20841)
 lasso.600<-lasso.600*sqrt(600)
 
@@ -111,6 +111,8 @@ legend("topright", legend=c("Lasso", "Ridge","ML","Firth"),
 
 ## 3 cov
 
+## n=180
+
 lasso.3.180<-c(1.98606,1.717983,1.336171,0.6816057,0.07216356,0.6552978,0.9354728,0.9576737,0.8140383)
 lasso.3.180<-lasso.3.180*sqrt(180)
 
@@ -143,7 +145,8 @@ legend(x=-0.7,y=35, legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=300
+
 lasso.3.300<-c(1.94478,1.677406,1.298329,0.6900919,0.07503481,0.6064059,0.7267909,0.6263405,0.5074553)
 
 lasso.3.300<-lasso.3.300*sqrt(300)
@@ -173,7 +176,8 @@ legend("topright", legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=600
+
 lasso.3.600<-c(1.885783,1.659992,1.297151,0.6845391,0.05340675,0.6009676,0.5502975,0.3805167,0.3417115)
 
 lasso.3.600<-lasso.3.600*sqrt(600)
@@ -210,7 +214,7 @@ legend("topright", legend=c("Lasso", "Ridge","ML","Firth"),
 par(mfrow=c(2,3))
 op <- par(cex = 1)  
 
-## k=6
+## k=6, n=180
 
 lasso.pred.180<-c(0.6167655,0.6180108,0.6197322,0.6253342,0.6364042,0.6552919,0.6915597,0.7421625,0.8141259)
 lasso.pred.180<-lasso.pred.180*sqrt(180)
@@ -247,7 +251,7 @@ legend("topleft", legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=300
 
 lasso.pred.300<-c(0.6276931,0.6288101,0.630871,0.635966,0.6465364,0.6690924,0.7120395,0.7812715,0.8501484)
 lasso.pred.300<-lasso.pred.300*sqrt(300)
@@ -279,7 +283,7 @@ legend("topleft", legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=600
 
 lasso.pred.600<-c(0.6256692,0.6265166,0.6279266,0.6330774,0.6440701,0.6656779,0.7262896,0.7860189,0.8746135)
 lasso.pred.600<-lasso.pred.600*sqrt(600)
@@ -311,6 +315,7 @@ legend("topleft", legend=c("Lasso", "Ridge","ML","Firth"),
 
 ## 3 cov
 
+## n=180 
 
 lasso.3.180.pred<-c(0.5439532,0.5447126,0.5456482,0.5502619,0.5586602,0.5752378,0.6124174,0.6436472,0.6942317)
 lasso.3.180.pred<-lasso.3.180.pred*sqrt(180)
@@ -343,7 +348,7 @@ legend("topleft", legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=300
 
 
 lasso.3.300.pred<-c(0.5488095,0.5496099,0.5511314,0.5560729,0.5636432,0.5816168,0.6219746,0.6634612,0.724856)
@@ -375,7 +380,8 @@ legend("topleft", legend=c("Lasso", "Ridge","ML","Firth"),
 
 
 
-##
+## n=600
+
 lasso.3.600.pred<-c(0.5496023,0.5503662,0.5516439,0.5557748,0.5642962,0.5828889,0.6258584,0.6817309,0.7326397)
 lasso.3.600.pred<-lasso.3.600.pred*sqrt(600)
 
@@ -412,6 +418,7 @@ legend("topleft", legend=c("Lasso", "Ridge","ML","Firth"),
 par(mfrow=c(2,3))
 op <- par(cex = 1) 
 
+## n=180
 sep.180<-c(117,101,86,35,10,1,0,0,0)
 sep.180<-sep.180/200
 
@@ -426,7 +433,7 @@ lines(x,sep.firth, type="b", col="green" )
 legend("topright", legend=c("ML", "Firth"),
        col=c("black", "green"), lty=1, cex=0.8)
 
-##
+## n=300
 sep.300<-c(83,62,43,13,0,0,0,0,0)
 sep.300<-sep.300/200
 
@@ -441,7 +448,7 @@ lines(x,sep.firth, type="b", col="green" )
 legend("topright", legend=c("ML", "Firth"),
        col=c("black", "green"), lty=1, cex=0.8)
 
-##
+## n=600
 sep.600<-c(32,19,10,1,0,0,0,0,0)
 sep.600<-sep.600/200
 
@@ -459,6 +466,8 @@ legend("topright", legend=c("ML", "Firth"),
 
 ## 3 cov
 
+## n=180
+
 sep.3.180<-c(134,119,104,57,22,6,2,0,0)
 sep.3.180<-sep.3.180/200
 
@@ -474,7 +483,7 @@ legend("topright", legend=c("ML", "Firth"),
        col=c("black", "green"), lty=1, cex=0.8)
 
 
-##
+## n=300
 
 sep.3.300<-c(112,94,67,25,5,0,0,0,0)
 sep.3.300<-sep.3.300/200
@@ -491,7 +500,7 @@ legend("topright", legend=c("ML", "Firth"),
        col=c("black", "green"), lty=1, cex=0.8)
 
 
-##
+## n=600
 
 sep.3.600<-c(58,37,25,3,0,0,0,0,0)
 sep.3.600<-sep.3.600/200
@@ -516,6 +525,8 @@ legend("topright", legend=c("ML", "Firth"),
 par(mfrow=c(2,3))
 op <- par(cex = 1) 
 
+## n=180
+
 cov.180<-c(0.935,0.95,0.95,0.98,0.965,0.94,0.915,0.875,0.835)
 cov.180<-cov.180*100
 
@@ -536,7 +547,7 @@ legend("bottomleft", legend=c("ML-Wald", "Firth-Profile","95% Coverage"),
        col=c("black", "green"), lty=1:3, cex=0.6)
 
 
-##
+## n=300
 
 cov.300<-c(0.96,0.955,0.94,0.94,0.95,0.915,0.93,0.89,0.9)
 cov.300<-cov.300*100
@@ -559,7 +570,7 @@ legend("bottomleft", legend=c("ML-Wald", "Firth-Profile","95% Coverage"),
 
 
 
-##
+## n=600
 
 cov.600<-c(0.965,0.97,0.985,0.95,0.95,0.905,0.865,0.92,0.845)
 
@@ -582,6 +593,8 @@ legend("bottomleft", legend=c("ML-Wald", "Firth-Profile","95% Coverage"),
 
 
 ## 3 cov
+
+## n=180
 
 cov.3.180<-c(0.955,0.96,0.94,0.97,0.98,0.975,0.95,0.905,0.89)
 
@@ -607,7 +620,7 @@ legend("bottomleft", legend=c("ML-Wald", "Firth-Profile","95% Coverage"),
 
 
 
-##
+## n=300
 
 cov.3.300<-c(0.93,0.945,0.945,0.945,0.95,0.935,0.915,0.915,0.845)
 
@@ -631,7 +644,7 @@ abline(h = 95, lty=3)
 legend("bottomleft", legend=c("ML-Wald", "Firth_Profile","95% Coverage"),
        col=c("black", "green"), lty=1:3, cex=0.6)
 
-##
+## n=600
 
 cov.3.600<-c(0.965,0.98,0.99,0.97,0.925,0.935,0.905,0.9,0.885)
 
