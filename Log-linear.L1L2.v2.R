@@ -4,7 +4,7 @@ library(faux)
 
 
 
-simulation_log<-function(n,beta){ 
+simulation_log<-function(n,beta){ ## data simulation 
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -89,7 +89,7 @@ beta<- log(8)
 data.sim.log<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data 
   data.sim.log[[i]]<-simulation_log(n,beta)
 }
 
@@ -110,6 +110,8 @@ lasso.coef.log<-list()
 
 for (i in 1:rep){
   
+  ## regressions 
+  
   lasso[[i]] <- cv.glmnet(newdata[[i]][,2:4], newdata[[i]][,"y_log"],
                           alpha = 1, family=poisson(link="log"),nfolds = 3)
   
@@ -117,10 +119,12 @@ for (i in 1:rep){
   
 }
 
+## RMSE
 
 RMSE<-sqrt((sum((unlist(lasso.coef.log)-beta)^2)/rep))
 
-
+## predictions
+ 
 pred<-list()
 RMSE.pred<-list()
 
