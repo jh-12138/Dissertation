@@ -1,7 +1,9 @@
 ## Logistic 
 library(faux)
 
-simulation_logit<-function(n,beta){ 
+simulation_logit<-function(n,beta){  ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -83,15 +85,19 @@ beta<- log(8)
 data.sim.logit<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data 
   data.sim.logit[[i]]<-simulation_logit(n,beta)
 }
 
+
+## intialisations 
 
 fit<-list()
 se<-list()
 
 for (i in 1:rep){
+  
+  ## regresions 
   
   fit[[i]]<-glm(y_logit~.,data =
                   as.data.frame(data.sim.logit[[i]]),
@@ -107,6 +113,7 @@ for (i in 1:rep){
 separation<-length(which(as.numeric(se)>200))
 
 
+## coverage 
 
 lower<-list()
 upper<-list()
@@ -141,7 +148,7 @@ coverage_fn<-function(se,rep,lower,upper, beta){
 coverage<-coverage_fn(se,rep,lower,upper,beta)
 
 
-## RMSE
+## RMSE of beta 
 
 
 estimate<-list()
