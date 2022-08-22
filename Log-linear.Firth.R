@@ -156,7 +156,7 @@ coverage_fn<-function(se,rep,confidence,lower,upper, beta){
 coverage.firth<-coverage_fn(se,rep,confidence,lower,upper,beta)
 
 
-## RMSE
+## RMSE of beta
 
 
 estimate<-list()
