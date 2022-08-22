@@ -101,6 +101,8 @@ name<-c("y_log","x1","x3","x4")
 
 newdata<-list()
 
+## recaliberate the data 
+
 for(i in 1:rep){
   newdata[[i]]<-data.sim.log[[i]][,name]
 }
