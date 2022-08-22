@@ -99,6 +99,8 @@ name<-c("y_logit","x1","x3","x4")
 
 newdata<-list()
 
+## re-caliberate the data 
+
 for(i in 1:rep){
   newdata[[i]]<-data.sim.logit[[i]][,name]
 }
@@ -207,12 +209,6 @@ RMSE.pred_fn<-function(pred,diff,RMSE.pred,fit){
 }
 
 RMSE.pred<-RMSE.pred_fn(pred,diff,RMSE.pred,fit)
-
-
-
-
-
-
 
 
 
