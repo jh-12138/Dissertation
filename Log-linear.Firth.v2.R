@@ -91,7 +91,7 @@ beta<- log(8)
 data.sim.log<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## simulation of the data
   data.sim.log[[i]]<-simulation_log(n,beta)
 }
 
