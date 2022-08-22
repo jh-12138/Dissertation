@@ -123,7 +123,7 @@ for (i in 1:rep){
   
 }
 
-## RMSE
+## RMSE of beta 
 
 RMSE<-sqrt((sum((unlist(lasso.coef.log)-beta)^2)/rep))
 
