@@ -4,7 +4,7 @@ library(actuar)
 library(MASS)
 
 
-simulation_log<-function(n,beta){ 
+simulation_log<-function(n,beta){ ## data simulation 
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -98,7 +98,6 @@ for(i in 1:rep){
 
 ## lists for regression outputs and se. 
 
-
 fit<-list()
 se<-list()
 
@@ -152,6 +151,9 @@ coverage_fn<-function(se,rep,confidence,lower,upper, beta){
 coverage.firth<-coverage_fn(se,rep,confidence,lower,upper,beta)
 
 
+## RMSE
+
+
 estimate<-list()
 
 RMSE.firth_fn<-function(estimate,fit){ 
@@ -173,6 +175,7 @@ RMSE.firth<-RMSE.firth_fn(estimate,fit)
 
 ## predictions
 
+## initialise
 
 pred<-list()
 diff<-list()
