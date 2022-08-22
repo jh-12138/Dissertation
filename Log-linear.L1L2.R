@@ -108,6 +108,8 @@ lasso.coef.log<-list()
 
 for (i in 1:rep){
   
+    ## regressions
+    
   lasso[[i]] <- cv.glmnet(data.sim.log[[i]][,2:7], data.sim.log[[i]][,"y_log"],
                           alpha = 1, family=poisson(link="log"),nfolds = 3)
   
