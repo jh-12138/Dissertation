@@ -4,8 +4,11 @@ library(actuar)
 library(MASS)
 
 
-simulation_log<-function(n,beta){ ## data simulation 
+simulation_log<-function(n,beta){ ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
+
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
                       sd = c(1, 1, 1),
