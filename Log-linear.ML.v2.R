@@ -2,7 +2,9 @@ library(actuar)
 library(faux)
 library(MASS)
 
-simulation_log<-function(n,beta){ 
+simulation_log<-function(n,beta){ ##function that takes n and beta as input and output the data. 
+    
+    ## simulate the random numbers
   
   dat1 <- rnorm_multi(n, 
                       mu = c(0, 0, 0),
@@ -89,7 +91,7 @@ beta<- log(8)
 data.sim.log<-list()
 set.seed(10)
 
-for(i in 1:rep){
+for(i in 1:rep){ ## data simulation 
   data.sim.log[[i]]<-simulation_log(n,beta)
 }
 
@@ -104,11 +106,12 @@ for(i in 1:rep){
   newdata[[i]]<-data.sim.log[[i]][,name]
 }
 
+## initialisations 
 
 fit<-list()
 se<-list()
 
-for (i in 1:rep){
+for (i in 1:rep){ ## regressions 
   
   fit[[i]]<-glm(y_log~.,data =
                   as.data.frame(newdata[[i]]),
